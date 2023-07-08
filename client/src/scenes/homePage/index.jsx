@@ -12,9 +12,9 @@ const HomePage = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   return (
-    <div className='min-h-screen w-full bg-[#f8f3f3] dark:bg-stone-950'>
+    <div className='min-h-screen w-full bg-[#f8f3f3] dark:bg-stone-800'>
       <Navbar />
-      <div className='flex px-1 mx-auto flex-col lg:flex-row my-2 lg:gap-[3vw] '>
+      <div className='flex px-1 mx-auto flex-col lg:flex-row my-2 lg:gap-[3vw] gap-3 '>
        
         <UserWidget userId={user._id} picturePath={user.picturePath} />
         

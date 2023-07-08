@@ -44,20 +44,20 @@ const UserWidget = ({ userId, picturePath }) => {
                 <div className="flex items-center justify-between">
                     <div className="flex items-center justify-center gap-2">
                         <img src={`http://localhost:4000/assets/${picturePath}`} alt="profile" className={`w-11 h-11 rounded-full`} />
-                        <div className="flex flex-col justify-start">
-                            <h1>{firstname} {lastname}</h1>
-                            <h2>{friends?.length} friends</h2>
+                        <div className="flex flex-col justify-center">
+                            <h1 className="text-lg font-semibold">{firstname} {lastname}</h1>
+                            <h2 className="text-sm font-light">{friends?.length} friends</h2>
                         </div>
                     </div>
                     <BsPersonFillGear className="text-2xl" />
                 </div>
                 <hr />
                 <div className="flex items-center gap-2">
-                    <GoLocation className="w-5 h-5"/>
+                    <GoLocation className="w-5 h-5 text-gray-700"/>
                     <h1 className="text-sm font-medium">{location}</h1>
                 </div>
                 <div className="flex items-center gap-2">
-                    <BsBriefcase className="w-5 h-5"/>
+                    <BsBriefcase className="w-5 h-5 text-gray-700"/>
                     <h1 className="text-sm font-medium">{occupation}</h1>
                 </div>
                 <hr />
@@ -73,23 +73,23 @@ const UserWidget = ({ userId, picturePath }) => {
                 <h1 className="font-bold">Social Profiles</h1>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <FaTwitter className="w-6 h-6"/>
+                        <FaTwitter className="w-6 h-6 text-gray-700"/>
                         <div>
                             <h1 className="text-sm font-medium">Twitter</h1>
-                            <h2 className="text-sm">Social Network</h2>
+                            <h2 className="text-xs">Social Network</h2>
                         </div>
                     </div>
-                    <BsPencil/>
+                    <BsPencil text-gray-700/>
                 </div>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <FaLinkedin className="w-6 h-6" />
+                        <FaLinkedin className="w-6 h-6 text-gray-700" />
                         <div>
                             <h1 className="text-sm font-medium">LinkedIn</h1>
-                            <h2 className="text-sm">Network Platform</h2>
+                            <h2 className="text-xs">Network Platform</h2>
                         </div>
                     </div>
-                    <BsPencil className=""/>
+                    <BsPencil className="text-gray-700"/>
                 </div>
             </div>
         </div>

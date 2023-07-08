@@ -60,7 +60,7 @@ const PostWidget = ({
     }
     
     return (
-      <div className="w-full my-1 bg-white rounded-md drop-shadow-lg sm:my-5">
+      <div className="w-full my-1 bg-white rounded-md dark:bg-stone-900 dark:text-stone-50 drop-shadow-lg sm:my-5">
         <Friend
             friendId={postUserId}
             name={name}
@@ -71,7 +71,7 @@ const PostWidget = ({
         {
             picturePath && (
                 <img
-                className='w-full h-auto rounded-md'
+                className='w-full h-auto '
                 src={`http://localhost:4000/assets/${picturePath}`}
                 alt='post'
                 />
@@ -96,10 +96,10 @@ const PostWidget = ({
              </p>
            </div>
         </div>
-        <div>
+        <div className="py-2">
             {
                 isCommenting && (
-                    <div className="flex gap-2 mx-2">
+                    <div className="flex gap-2 mx-2 ">
                         <input
                         className="block w-1/2 px-4 py-1 leading-normal bg-gray-100 border-gray-300 rounded-lg appearance-none border-1 focus:outline-none focus:border-blue-500"
                         type='text'
@@ -119,7 +119,10 @@ const PostWidget = ({
             {
                 comments.map((comment) => {
                     return (
-                        <div>
+                        <div className="px-2 py-2 text-stone-700 dark:text-stone-100">
+                            {
+                                console.log(comment)
+                            }
                             <h1>{comment.name}</h1>
                             <h2>{comment.comment}</h2>
                         </div>

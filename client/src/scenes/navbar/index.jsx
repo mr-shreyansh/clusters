@@ -23,10 +23,10 @@ const Navbar = () => {
   }
 
   return (
-    <div className=' relative flex items-center min-h-[10vh] justify-between w-full px-8 bg-white dark:bg-stone-900'>
+    <div className=' relative flex z-10 items-center min-h-[10vh] justify-between w-full px-8 bg-white dark:bg-stone-900'>
       {/* left side */}
       <div className='flex items-center gap-4'>
-        <h1 className='text-3xl font-bold select-none text-cyan-500'>Sociopedia</h1>
+        <h1 className='text-3xl font-bold select-none text-cyan-500'>Clusters</h1>
         <div className='relative justify-around hidden rounded-lg md:flex bg-stone-200 dark:bg-stone-700'>
           <input type='text' className='px-2 py-1 bg-transparent rounded-lg' placeholder='Search' />
           <span>

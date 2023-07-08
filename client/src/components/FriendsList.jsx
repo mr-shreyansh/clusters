@@ -30,8 +30,8 @@ const FriendsList = () => {
     }
 
   return (
-    <div className='min-w-[300px] drop-shadow-lg'>
-        <div className='flex flex-col items-start w-full px-2 py-2 bg-white'>
+    <div className='min-w-[300px] drop-shadow-lg '>
+        <div className='flex flex-col items-start w-full px-2 py-2 bg-white dark:bg-stone-900 dark:text-stone-50'>
             <h1 className='text-lg font-medium'>Friend List</h1>
             
                 {
