@@ -14,6 +14,8 @@ import usersRoutes from './routes/users.js';
 import postsRoutes from './routes/posts.js';
 import {fileURLToPath} from 'url';
 import { verifyToken } from './middleware/auth.js';
+import http from 'http';
+import { Server } from 'socket.io';
 
 // Configurations
 const __filename = fileURLToPath(import.meta.url);
@@ -28,6 +30,38 @@ app.use(bodyParser.json({limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true}))
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, 'public/assets')));
+
+
+const server = http.createServer(app);
+// Socket.io
+const io = new Server(server, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"]
+    }
+});
+ 
+io.on("connection", (socket) => {
+   console.log(socket.id);
+
+   socket.on("join_room", (data) => {
+    socket.join(data);
+    console.log("User joined room: " + data);
+   });
+
+   socket.on("send_message", (data) => {
+    console.log(data);
+         socket.to(data.cluster).emit("receive_message", data);
+
+   })
+
+   socket.on("disconnect", () => {
+         console.log("User disconnected");
+
+   })
+});
+
+
 
 // File Storage 
 const storage = multer.diskStorage({
@@ -56,7 +90,7 @@ const port = process.env.PORT;
 if(port) {
 mongoose.connect(process.env.MONGO_URI, 
     {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(() => app.listen(port, () => console.log(`Server running on port: ${port}`)
+    .then(() => server.listen(port, () => console.log(`Server running on port: ${port}`)
     ))
     .catch((error) => console.log(error.message));
 

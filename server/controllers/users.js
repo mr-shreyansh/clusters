@@ -4,9 +4,9 @@ import {User} from "../models/User.js";
 export const getUser = async (req, res) => {
     try{
         const {id} = req.params;
-        console.log(id);
+        // console.log(id);
         const user = await User.findById(id);
-        console.log(user);
+        // console.log(user);
         res.status(200).json(user);
     } catch(err) {
         res.status(500).json({message: err.message});
@@ -17,7 +17,7 @@ export const getUserFriends = async (req, res) => {
     try{
     const {id} = req.params;
     const user = await User.findById(id);
-     console.log(user);
+    //  console.log(user);
     const friends = await Promise.all(
         user.friends.map((id)=> {
             User.findById(id);
